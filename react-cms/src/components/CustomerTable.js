@@ -15,7 +15,7 @@ export default function CustomerTable({ dataUser }) {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `Success deleted user with ID ${res.id}`,
+        title: `Success deleted user with ID ${id}`,
         showConfirmButton: false,
         timer: 2500,
       });
