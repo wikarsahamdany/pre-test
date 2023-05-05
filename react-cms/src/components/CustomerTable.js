@@ -11,11 +11,11 @@ export default function CustomerTable({ dataUser }) {
   const navigate = useNavigate();
 
   function handleDelete(id) {
-    dispatch(deleteUser(id)).then((res)  => {
+    dispatch(deleteUser(id)).then((res) => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `Success deleted user with ID ${res.id}`,
+        title: `Success deleted user with ID ${id}`,
         showConfirmButton: false,
         timer: 2500,
       });

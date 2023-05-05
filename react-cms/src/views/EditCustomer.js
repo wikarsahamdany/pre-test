@@ -70,6 +70,7 @@ export default function EditCustomer() {
         timer: 2000,
       });
 
+
       navigate("/customer");
     } catch (err) {
         Swal.fire({

@@ -30,7 +30,7 @@ export function addCustomer(dataCustomer) {
     try {
       if (dataCustomer.firstName === "" || dataCustomer.lastName === "" || dataCustomer.phone === "" || dataCustomer.bank.cardType === "" || dataCustomer.bank.cardNumber === "") {
         throw {
-          message: "Form cannot be emty",
+          message: "Form cannot be empty",
         };
       }
 
@@ -44,7 +44,7 @@ export function addCustomer(dataCustomer) {
         throw await res.json();
       }
 
-      return await res.json();
+      console.log(await res.json())
     } catch (err) {
       console.log(err.message);
       throw err;
@@ -63,7 +63,7 @@ export function deleteUser(id) {
         throw await resDel.json();
       }
 
-      return await resDel.json();
+      console.log(await resDel.json())
     } catch (err) {
       throw err;
     }
@@ -98,7 +98,7 @@ export function editCustomer({ id, dataCustomer }) {
     try {
       if (dataCustomer.firstName === "" || dataCustomer.lastName === "" || dataCustomer.phone === "" || dataCustomer.bank.cardType === "" || dataCustomer.bank.cardNumber === "") {
         throw {
-          message: "Form cannot be emty",
+          message: "Form cannot be empty",
         };
       }
 
@@ -112,7 +112,7 @@ export function editCustomer({ id, dataCustomer }) {
         throw await res.json();
       }
 
-      console.log(await res.json(), "ini data berhasil edit");
+      console.log(await res.json(), "Success Update Data");
     } catch (err) {
       throw err;
     }
