@@ -36,11 +36,11 @@ export default function Dasboard() {
             <div>
               <img className="d-block w-100 h-100" src="https://pbs.twimg.com/media/Eo_esTJU0AA2Nmi.jpg:large" alt="First slide" />
             </div>
-            <div style={{ height: "79px"}}>
-              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2022/6/20/SushiTei-Grup.png" width={200}/>
-              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2022/6/20/Traveloka.png" width={200}/>
-              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2017/5/10/cr-pdam.jpg" width={200}/>
-              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2017/5/22/CR_telkomsel.png" width={180}/>
+            <div style={{ height: "79px" }}>
+              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2022/6/20/SushiTei-Grup.png" width={200} />
+              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2022/6/20/Traveloka.png" width={200} />
+              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2017/5/10/cr-pdam.jpg" width={200} />
+              <img src="https://www.bni.co.id/Portals/1/DNNGalleryPro/uploads/2017/5/22/CR_telkomsel.png" width={180} />
             </div>
           </div>
         </div>
