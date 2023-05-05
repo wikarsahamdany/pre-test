@@ -4,7 +4,6 @@ import { fetchCustomer, searchCustomer } from "../actions/createactions";
 import CustomerTable from "../components/CustomerTable";
 import { NavLink } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
-import Pagination from "react-bootstrap/Pagination";
 
 export default function Customer() {
   const dataCustomers = useSelector((state) => state.customerReducer.customers);
@@ -14,6 +13,7 @@ export default function Customer() {
   const [searchResults, setSearchResults] = useState([]);
   const [skip, setSkip] = useState(0);
   const [pageSize, setPageSize] = useState(10);
+  const [showPagination, setShowPagination] = useState(true);
 
   useEffect(() => {
     dispatch(fetchCustomer(pageSize, skip));
@@ -24,6 +24,7 @@ export default function Customer() {
   const handleSearch = async () => {
     const results = await dispatch(searchCustomer(searchTerm));
     setSearchResults(results);
+    setShowPagination(false);
   };
 
   const handleChange = (event) => {
@@ -36,6 +37,11 @@ export default function Customer() {
 
   const handleBack = () => {
     setSkip((prevSkip) => prevSkip - pageSize);
+  };
+
+  const reFetch = async () => {
+    await dispatch(fetchCustomer(pageSize, skip));
+    setShowPagination(true)
   };
 
   return (
@@ -53,11 +59,11 @@ export default function Customer() {
           </button>
         </div>
       </div>
-      <div style={{width: "70rem", marginLeft: "auto" , marginRight : "auto", height : "200px"}}>
+      <div style={{ width: "70rem", marginLeft: "auto", marginRight: "auto", height: "200px" }}>
         <CustomerTable dataUser={dataToDisplay} />
         {dataToDisplay.users?.length > 0 && (
           <div className="d-flex gap-2">
-            {dataToDisplay.users[0].id === 1 ? (
+            {dataToDisplay.users[0].id === 1 || !showPagination ? (
               ""
             ) : (
               <button type="button" className="btn btn-primary" style={{ marginTop: "1rem", minWidth: "100px", minHeight: "40px", justifyContent: "center" }} onClick={handleBack}>
@@ -65,11 +71,19 @@ export default function Customer() {
               </button>
             )}
 
-            {dataToDisplay.users[0]?.id === 21 && dataToDisplay ? (
+            {dataToDisplay.users[0]?.id === 21 || !showPagination ? (
               ""
             ) : (
               <button type="button" className="btn btn-primary" style={{ marginTop: "1rem", minWidth: "100px", minHeight: "40px", justifyContent: "center" }} onClick={handleLoadMore}>
                 Next
+              </button>
+            )}
+
+            {showPagination ? (
+              ""
+            ) : (
+              <button type="button" className="btn btn-primary" style={{ marginTop: "1rem", minWidth: "100px", minHeight: "40px", justifyContent: "center" }} onClick={reFetch}>
+                See All
               </button>
             )}
           </div>
