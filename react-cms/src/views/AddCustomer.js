@@ -18,11 +18,12 @@ export default function AddCustomer() {
     },
   });
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name.startsWith("bank")) {
-      const [field] = name.split(".");
+      const [bank ,field] = name.split(".");
       setDataCustomer({
         ...dataCustomer,
         bank: {
@@ -42,10 +43,6 @@ export default function AddCustomer() {
     e.preventDefault();
     try {
       const data = await dispatch(addCustomer(dataCustomer));
-
-      if (!data) {
-        throw data;
-      }
 
       Swal.fire({
         position: "top-end",
